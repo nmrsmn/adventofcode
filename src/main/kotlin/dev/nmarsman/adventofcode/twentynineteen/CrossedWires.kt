@@ -14,10 +14,10 @@ class CrossedWires: Puzzle(2019, 3)
             .map(::convertToPoint)
             .let { (first, second) -> first.intersect(second) }
 
-    override fun first()
-        = first(input)
+    override fun part1()
+        = part1(input)
 
-    fun first(input: List<String>)
+    fun part1(input: List<String>)
         = input
             .map(::convert)
             .map(::convertToPoint)
@@ -25,10 +25,10 @@ class CrossedWires: Puzzle(2019, 3)
             .map { it.manhatten() }
             .min()
 
-    override fun second()
-        = second(input)
+    override fun part2()
+        = part2(input)
 
-    fun second(input: List<String>)
+    fun part2(input: List<String>)
         = input
             .map(::convert)
             .map(::convertToPoint)

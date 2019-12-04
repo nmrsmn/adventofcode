@@ -14,12 +14,12 @@ class TheTyrannyOfTheRocketEquation: Puzzle(2019, 1)
     override val input: List<Double>
         get() = data.trim().lines().map { it.toDouble() }
 
-    override fun first()
+    override fun part1()
         = input
             .map(::calculateExtraFuel)
             .sum()
 
-    override fun second()
+    override fun part2()
         = input
             .map(::calculateCompoundExtraFuel)
             .sum()

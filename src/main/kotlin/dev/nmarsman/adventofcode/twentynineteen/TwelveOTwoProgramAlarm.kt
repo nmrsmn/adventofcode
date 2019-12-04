@@ -8,14 +8,14 @@ class TwelveOTwoProgramAlarm: Puzzle(2019, 2)
     override val input: IntArray
         get() = data.trim().split(',').map { it.toInt() }.toIntArray()
 
-    override fun first()
+    override fun part1()
         = input
             .also { it[1] = 12 }
             .also { it[2] = 2 }
             .let { process(it) }
             .let { it[0] }
 
-    override fun second(): Int
+    override fun part2(): Int
     {
         for (noun in 0 until 99)
         {

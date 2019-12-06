@@ -6,10 +6,10 @@ import java.lang.IllegalStateException
 class TwelveOTwoProgramAlarm: Puzzle(2019, 2)
 {
     override val input: IntArray
-        get() = data.trim().split(',').map { it.toInt() }.toIntArray()
+        = data.trim().split(',').map { it.toInt() }.toIntArray()
 
     override fun part1()
-        = input
+        = input.copyOf()
             .also { it[1] = 12 }
             .also { it[2] = 2 }
             .let { process(it) }

@@ -6,7 +6,7 @@ import dev.nmarsman.adventofcode.utils.Point
 class CrossedWires: Puzzle(2019, 3)
 {
     override val input: List<String>
-        get() = data.trim().lines()
+        = data.trim().lines()
 
     private val intersections: Set<Point>
         = input

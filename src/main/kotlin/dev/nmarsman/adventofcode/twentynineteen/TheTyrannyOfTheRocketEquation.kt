@@ -12,17 +12,17 @@ import kotlin.math.max
 class TheTyrannyOfTheRocketEquation: Puzzle(2019, 1)
 {
     override val input: List<Double>
-        get() = data.trim().lines().map { it.toDouble() }
+        = data.trim().lines().map { it.toDouble() }
 
     override fun part1()
         = input
             .map(::calculateExtraFuel)
-            .sum()
+            .sum().toInt()
 
     override fun part2()
         = input
             .map(::calculateCompoundExtraFuel)
-            .sum()
+            .sum().toInt()
 
     fun calculateExtraFuel(mass: Double): Double
         = floor(mass / 3) - 2

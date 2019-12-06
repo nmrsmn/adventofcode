@@ -16,13 +16,13 @@ import kotlin.math.roundToInt
 class SunnyWithAChanceOfAsteroids: Puzzle(2019, 5)
 {
     override val input: IntArray
-        get() = data.trim().split(',').map { it.toInt() }.toIntArray()
+        = data.trim().split(',').map { it.toInt() }.toIntArray()
 
     override fun part1()
-        = Program(input, 1).run().output.last()
+        = Program(input.copyOf(), 1).run().output.last()
 
     override fun part2()
-        = Program(input, 5).run().output.last()
+        = Program(input.copyOf(), 5).run().output.last()
 
     class Program(val memory: IntArray, val input: Int)
     {

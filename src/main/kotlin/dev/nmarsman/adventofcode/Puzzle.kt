@@ -4,7 +4,9 @@ import dev.nmarsman.adventofcode.utils.Input
 import kotlin.reflect.KClass
 
 import kotlin.reflect.full.primaryConstructor
-import kotlin.system.measureTimeMillis
+import kotlin.time.Duration
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTimedValue
 
 abstract class Puzzle(val year: Int, val day: Int)
 {
@@ -22,6 +24,7 @@ abstract class Puzzle(val year: Int, val day: Int)
 
     companion object
     {
+        @UseExperimental(ExperimentalTime::class)
         fun mainify(clazz: KClass<out Puzzle>)
         {
             val puzzle = clazz.primaryConstructor?.call()
@@ -30,11 +33,32 @@ abstract class Puzzle(val year: Int, val day: Int)
             println(" ${puzzle.identifier}:\n" +
                     "-".repeat(puzzle.identifier.length + 3) + "\n")
 
-            measureTimeMillis { println("Part one: ${puzzle.part1() ?: "Unresolved"}") }
-                .also { println("Time: ${it}ms\n") }
+            measureTimedValue { puzzle.part1() }
+                .also { print("Part one: ${it.value ?: "Unresolved"}\n\n") }
+                .also { print("Time\t: ") }
+                .also { print("${format(it.duration)} (first run)\n\t\t  ") }
+                .also { print(measureAverageTime { puzzle.part1() } + " (average)\n\n\n") }
 
-            measureTimeMillis { println("Part two: ${puzzle.part2() ?: "Unresolved"}") }
-                .also { println("Time: ${it}ms\n") }
+            measureTimedValue { puzzle.part2() }
+                .also { print("Part one: ${it.value ?: "Unresolved"}\n\n") }
+                .also { print("Time\t: ") }
+                .also { print("${format(it.duration)} (first run)\n\t\t  ") }
+                .also { print(measureAverageTime { puzzle.part2() } + " (average)\n\n") }
         }
+
+        @UseExperimental(ExperimentalTime::class)
+        private fun measureAverageTime(iterations: Int = 20, block: () -> Unit): String
+            = (0 .. iterations)
+                .map { measureTimedValue { block() } }
+                .map { it.duration.toLongNanoseconds() }
+                .sum().div(iterations)
+                .let { format(it) }
+
+        @UseExperimental(ExperimentalTime::class)
+        private fun format(duration: Duration, precision: Int = 4): String
+            = format(duration.toLongNanoseconds())
+
+        private fun format(nanotime: Long, precision: Int = 4): String
+            = "${"%.${precision}f".format(nanotime / 1000000f)}ms"
     }
 }

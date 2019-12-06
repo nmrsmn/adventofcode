@@ -5,7 +5,7 @@ import dev.nmarsman.adventofcode.utils.Point
 
 class SecureContainer: Puzzle(2019, 4)
 {
-    override val input get()
+    override val input
         = data.trim().split("-")
             .map(Integer::parseInt)
             .let { (first, second) -> (first .. second) }

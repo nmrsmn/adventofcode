@@ -4,9 +4,9 @@ import dev.nmarsman.adventofcode.PuzzleTest
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class CrossedWiresTests: PuzzleTest
+class Day3Tests: PuzzleTest
 {
-    override val puzzle = CrossedWires()
+    override val puzzle = Day3()
 
     /*
     R8,U5,L5,D3

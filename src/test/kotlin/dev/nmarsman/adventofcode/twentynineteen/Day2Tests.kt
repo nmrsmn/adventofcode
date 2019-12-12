@@ -4,9 +4,9 @@ import dev.nmarsman.adventofcode.PuzzleTest
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class TwelveOTwoProgramAlarmTests: PuzzleTest
+class Day2Tests: PuzzleTest
 {
-    override val puzzle = TwelveOTwoProgramAlarm()
+    override val puzzle = Day2()
 
     /*
     1,0,0,0,99 becomes 2,0,0,0,99 (1 + 1 = 2).

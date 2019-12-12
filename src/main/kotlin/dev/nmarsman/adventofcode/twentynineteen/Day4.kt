@@ -1,9 +1,8 @@
 package dev.nmarsman.adventofcode.twentynineteen
 
 import dev.nmarsman.adventofcode.Puzzle
-import dev.nmarsman.adventofcode.utils.Point
 
-class SecureContainer: Puzzle(2019, 4)
+class Day4: Puzzle(2019, 4)
 {
     override val input
         = data.trim().split("-")
@@ -36,4 +35,4 @@ class SecureContainer: Puzzle(2019, 4)
         = code.groupBy { it }.any { it.value.count() == 2 }
 }
 
-fun main() = Puzzle.mainify(SecureContainer::class)
+fun main() = Puzzle.mainify(Day4::class)

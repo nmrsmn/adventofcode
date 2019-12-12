@@ -1,13 +1,13 @@
 package dev.nmarsman.adventofcode.twentynineteen
 
 import dev.nmarsman.adventofcode.PuzzleTest
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.Program
+import dev.nmarsman.adventofcode.twentynineteen.Day5.Program
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class SunnyWithAChanceOfAsteroidsTests: PuzzleTest
+class Day5Tests: PuzzleTest
 {
-    override val puzzle = SunnyWithAChanceOfAsteroids()
+    override val puzzle = Day5()
 
     /*
     Input = 1

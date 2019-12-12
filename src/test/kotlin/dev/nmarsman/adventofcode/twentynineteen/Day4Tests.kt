@@ -4,9 +4,9 @@ import dev.nmarsman.adventofcode.PuzzleTest
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class SecureContainerTests: PuzzleTest
+class Day4Tests: PuzzleTest
 {
-    override val puzzle = SecureContainer()
+    override val puzzle = Day4()
 
     /*
     111111 meets these criteria (double 11, never decreases).

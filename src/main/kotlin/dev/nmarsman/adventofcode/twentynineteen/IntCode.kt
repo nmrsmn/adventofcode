@@ -1,29 +1,9 @@
 package dev.nmarsman.adventofcode.twentynineteen
 
-import dev.nmarsman.adventofcode.Puzzle
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.ADD
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.EQUALS
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.INPUT
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.JUMP_FALSE
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.JUMP_TRUE
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.LESS_THAN
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.MULTIPLY
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.OUTPUT
-import dev.nmarsman.adventofcode.twentynineteen.SunnyWithAChanceOfAsteroids.OpCode.TERMINATE
-import java.lang.IllegalStateException
-import kotlin.math.roundToInt
+import dev.nmarsman.adventofcode.twentynineteen.IntCode.OpCode.*
 
-class SunnyWithAChanceOfAsteroids: Puzzle(2019, 5)
+class IntCode
 {
-    override val input: IntArray
-        = data.trim().split(',').map { it.toInt() }.toIntArray()
-
-    override fun part1()
-        = Program(input.copyOf(), 1).run().output.last()
-
-    override fun part2()
-        = Program(input.copyOf(), 5).run().output.last()
-
     class Program(val memory: IntArray, val input: Int)
     {
         val output = mutableListOf<Int>()
@@ -33,7 +13,7 @@ class SunnyWithAChanceOfAsteroids: Puzzle(2019, 5)
             var pointer = 0
             while (true)
             {
-                var code = OpCode.values().find { it.code == memory[pointer] % 100 }
+                var code = values().find { it.code == memory[pointer] % 100 }
                     ?: throw IllegalStateException("Undefined opcode '${memory[pointer]}' supplied")
 
                 pointer = handle(code, pointer, memory.slice(pointer + 1 .. pointer + code.params), modes(code, pointer)) ?: return this
@@ -91,5 +71,3 @@ class SunnyWithAChanceOfAsteroids: Puzzle(2019, 5)
         TERMINATE(99, 0)
     }
 }
-
-fun main() = Puzzle.mainify(SunnyWithAChanceOfAsteroids::class)

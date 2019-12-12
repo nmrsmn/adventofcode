@@ -1,9 +1,8 @@
 package dev.nmarsman.adventofcode.twentynineteen
 
 import dev.nmarsman.adventofcode.Puzzle
-import java.lang.IllegalStateException
 
-class TwelveOTwoProgramAlarm: Puzzle(2019, 2)
+class Day2: Puzzle(2019, 2)
 {
     override val input: IntArray
         = data.trim().split(',').map { it.toInt() }.toIntArray()
@@ -63,4 +62,4 @@ class TwelveOTwoProgramAlarm: Puzzle(2019, 2)
     }
 }
 
-fun main() = Puzzle.mainify(TwelveOTwoProgramAlarm::class)
+fun main() = Puzzle.mainify(Day2::class)

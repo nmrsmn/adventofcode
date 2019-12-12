@@ -2,7 +2,7 @@ package dev.nmarsman.adventofcode.twentynineteen
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class UniversalOrbitMap: Puzzle(2019, 6)
+class Day6: Puzzle(2019, 6)
 {
     override val input: Map<String, String>
         = data.trim().lines()
@@ -37,4 +37,4 @@ class UniversalOrbitMap: Puzzle(2019, 6)
           else path(input.getValue(current)) + current
 }
 
-fun main() = Puzzle.mainify(UniversalOrbitMap::class)
+fun main() = Puzzle.mainify(Day6::class)

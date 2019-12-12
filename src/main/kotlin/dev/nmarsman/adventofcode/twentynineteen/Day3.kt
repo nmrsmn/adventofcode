@@ -3,7 +3,7 @@ package dev.nmarsman.adventofcode.twentynineteen
 import dev.nmarsman.adventofcode.Puzzle
 import dev.nmarsman.adventofcode.utils.Point
 
-class CrossedWires: Puzzle(2019, 3)
+class Day3: Puzzle(2019, 3)
 {
     override val input: List<String>
         = data.trim().lines()
@@ -64,4 +64,4 @@ class CrossedWires: Puzzle(2019, 3)
             .filter { intersections.contains(it.first) }.toMap()
 }
 
-fun main() = Puzzle.mainify(CrossedWires::class)
+fun main() = Puzzle.mainify(Day3::class)

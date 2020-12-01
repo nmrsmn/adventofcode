@@ -40,7 +40,7 @@ abstract class Puzzle(val year: Int, val day: Int)
                 .also { print(measureAverageTime { puzzle.part1() } + " (average)\n\n\n") }
 
             measureTimedValue { puzzle.part2() }
-                .also { print("Part one: ${it.value ?: "Unresolved"}\n\n") }
+                .also { print("Part two: ${it.value ?: "Unresolved"}\n\n") }
                 .also { print("Time\t: ") }
                 .also { print("${format(it.duration)} (first run)\n\t\t  ") }
                 .also { print(measureAverageTime { puzzle.part2() } + " (average)\n\n") }

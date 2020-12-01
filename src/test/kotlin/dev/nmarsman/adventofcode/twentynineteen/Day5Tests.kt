@@ -1,7 +1,7 @@
 package dev.nmarsman.adventofcode.twentynineteen
 
 import dev.nmarsman.adventofcode.PuzzleTest
-import dev.nmarsman.adventofcode.twentynineteen.Day5.Program
+import dev.nmarsman.adventofcode.twentynineteen.IntCode.Program
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

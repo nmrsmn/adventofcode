@@ -1,6 +1,7 @@
 package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.PuzzleTest
+import dev.nmarsman.adventofcode.utils.pairs
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

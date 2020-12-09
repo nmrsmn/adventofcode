@@ -1,6 +1,13 @@
 package dev.nmarsman.adventofcode.utils
 
 /**
+ * List
+ */
+
+fun <T> List<T>.pairs(): List<Pair<T, T>>
+    = asSequence().pairs().toList()
+
+/**
  * Sequence
  */
 

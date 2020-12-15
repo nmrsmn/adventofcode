@@ -1,5 +1,7 @@
 package dev.nmarsman.adventofcode.utils
 
+import kotlin.math.absoluteValue
+
 /**
  * List
  */
@@ -30,3 +32,27 @@ fun <T> Sequence<T>.triples(): Sequence<Triple<T, T, T>> = sequence {
         }
     }
 }
+
+/**
+ * Point
+ */
+
+typealias Point = Pair<Int, Int>
+
+val Point.x get() = first
+val Point.y get() = second
+
+operator fun Point.plus(other: Point): Point
+    = Point(x + other.x, y + other.y)
+
+operator fun Point.times(by: Int): Point
+    = Point(x * by, y * by)
+
+infix fun Point.distanceTo(other: Point): Int
+    = (x - other.x).absoluteValue + (y - other.y).absoluteValue
+
+fun Point.rotateLeft(): Point
+    = Point(y * -1, x)
+
+fun Point.rotateRight(): Point
+    = Point(y, x * -1)

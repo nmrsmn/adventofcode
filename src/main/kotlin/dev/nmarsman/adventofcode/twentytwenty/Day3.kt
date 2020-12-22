@@ -2,9 +2,10 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day3: Puzzle(2020, 3)
+class Day3: Puzzle<List<String>>(2020, 3)
 {
-    override val input: List<String> = data.trim().lines()
+    override fun format(input: String): List<String>
+        = input.trim().lines()
 
     override fun part1()
         = countTrees(input)

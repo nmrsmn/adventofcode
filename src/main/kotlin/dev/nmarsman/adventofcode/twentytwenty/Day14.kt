@@ -3,11 +3,10 @@ package dev.nmarsman.adventofcode.twentytwenty
 import dev.nmarsman.adventofcode.Puzzle
 import dev.nmarsman.adventofcode.utils.toBinary
 
-class Day14: Puzzle(2020, 14)
+class Day14: Puzzle<List<String>>(2020, 14)
 {
-    override val input = data.let(::format)
-
-    fun format(input: String) = input.trim().lines()
+    override fun format(input: String)
+        = input.trim().lines()
 
     override fun part1()
         = sumOfMemory(input)

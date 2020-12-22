@@ -2,9 +2,10 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day2: Puzzle(2020, 2)
+class Day2: Puzzle<List<PasswordLine>>(2020, 2)
 {
-    override val input: List<PasswordLine> = data.trim().lines().map(::parsePasswordLine)
+    override fun format(input: String): List<PasswordLine>
+        = input.trim().lines().map(::parsePasswordLine)
 
     override fun part1()
         = validatePasswordLinesByCount(input)

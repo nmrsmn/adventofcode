@@ -2,10 +2,10 @@ package dev.nmarsman.adventofcode.twentynineteen
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day4: Puzzle(2019, 4)
+class Day4: Puzzle<List<List<Int>>>(2019, 4)
 {
-    override val input
-        = data.trim().split("-")
+    override fun format(input: String)
+        = input.trim().split("-")
             .map(Integer::parseInt)
             .let { (first, second) -> (first .. second) }
             .map(::convert)

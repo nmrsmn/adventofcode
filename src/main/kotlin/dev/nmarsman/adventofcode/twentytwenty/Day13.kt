@@ -2,11 +2,9 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day13: Puzzle(2020, 13)
+class Day13: Puzzle<Pair<Int, List<String>>>(2020, 13)
 {
-    override val input = data.let(::format)
-
-    fun format(input: String)
+    override fun format(input: String)
         = input.trim().lines().let {
             it.first().toInt() to it.last().split(",")
         }

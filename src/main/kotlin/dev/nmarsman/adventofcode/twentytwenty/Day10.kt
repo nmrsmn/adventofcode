@@ -2,11 +2,9 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day10: Puzzle(2020, 10)
+class Day10: Puzzle<List<Int>>(2020, 10)
 {
-    override val input = data.let(::format)
-
-    fun format(input: String): List<Int>
+    override fun format(input: String)
         = input.trim().lines().map(String::toInt).sorted()
 
     override fun part1()

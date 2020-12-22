@@ -3,11 +3,9 @@ package dev.nmarsman.adventofcode.twentytwenty
 import dev.nmarsman.adventofcode.Puzzle
 import dev.nmarsman.adventofcode.utils.pairs
 
-class Day9: Puzzle(2020, 9)
+class Day9: Puzzle<List<Long>>(2020, 9)
 {
-    override val input = data.let(::format)
-
-    fun format(input: String): List<Long>
+    override fun format(input: String): List<Long>
         = input.trim().lines().map(String::toLong)
 
     private var deviation: Long = 0L

@@ -2,11 +2,9 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day8: Puzzle(2020, 8)
+class Day8: Puzzle<List<Pair<String, Int>>>(2020, 8)
 {
-    override val input = data.let(::format)
-
-    fun format(input: String): List<Pair<String, Int>> = input.trim().lines().map { line ->
+    override fun format(input: String): List<Pair<String, Int>> = input.trim().lines().map { line ->
         val (instruction, argument) = line.split(" ", limit = 2)
         instruction to argument.toInt()
     }

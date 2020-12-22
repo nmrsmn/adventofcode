@@ -2,12 +2,9 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day6: Puzzle(2020, 6)
+class Day6: Puzzle<List<List<Set<Char>>>>(2020, 6)
 {
-    override val input
-        = data.trim().let(::format)
-
-    fun format(input: String) = input.trim()
+    override fun format(input: String) = input.trim()
         .split("\n\n")
         .map { it.lines().map(String::toSet) }
 

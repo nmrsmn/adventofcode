@@ -8,24 +8,27 @@ import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
-abstract class Puzzle(val year: Int, val day: Int)
+abstract class Puzzle<T: Any>(val year: Int, val day: Int)
 {
     val identifier by lazy { "Advent of code ${year} - day ${day}" }
 
-    val data: String by lazy()
+    private val data: String by lazy()
     {
         Input.fetcher.fetch(year, day).execute().body() ?: ""
     }
 
-    abstract val input: Any
+    val input: T
+        get() = format(data)
+
+    abstract fun format(input: String): T
 
     open fun part1(): Any? = null
     open fun part2(): Any? = null
 
     companion object
     {
-        @UseExperimental(ExperimentalTime::class)
-        fun mainify(clazz: KClass<out Puzzle>)
+        @OptIn(ExperimentalTime::class)
+        fun mainify(clazz: KClass<out Puzzle<*>>)
         {
             val puzzle = clazz.primaryConstructor?.call()
                 ?: throw IllegalStateException("Puzzle ${clazz.simpleName} should have a primary constructor")
@@ -46,7 +49,7 @@ abstract class Puzzle(val year: Int, val day: Int)
                 .also { print(measureAverageTime { puzzle.part2() } + " (average)\n\n") }
         }
 
-        @UseExperimental(ExperimentalTime::class)
+        @OptIn(ExperimentalTime::class)
         private fun measureAverageTime(iterations: Int = 20, block: () -> Unit): String
             = (0 .. iterations)
                 .map { measureTimedValue { block() } }
@@ -54,7 +57,7 @@ abstract class Puzzle(val year: Int, val day: Int)
                 .sum().div(iterations)
                 .let { format(it) }
 
-        @UseExperimental(ExperimentalTime::class)
+        @OptIn(ExperimentalTime::class)
         private fun format(duration: Duration, precision: Int = 4): String
             = format(duration.toLongNanoseconds())
 

@@ -4,10 +4,10 @@ import dev.nmarsman.adventofcode.Puzzle
 import dev.nmarsman.adventofcode.utils.pairs
 import dev.nmarsman.adventofcode.utils.triples
 
-class Day1: Puzzle(2020, 1)
+class Day1: Puzzle<Sequence<Int>>(2020, 1)
 {
-    override val input: Sequence<Int>
-        = data.trim().lines().map { it.toInt() }.sorted().asSequence()
+    override fun format(input: String): Sequence<Int>
+        = input.trim().lines().map { it.toInt() }.sorted().asSequence()
 
     override fun part1()
         = findPair(input)

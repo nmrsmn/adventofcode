@@ -7,11 +7,9 @@ import java.lang.IllegalArgumentException
 typealias Instruction = Pair<Char, Int>
 typealias Position = Pair<Int, Int>
 
-class Day12: Puzzle(2020, 12)
+class Day12: Puzzle<List<Instruction>>(2020, 12)
 {
-    override val input = data.let(::format)
-
-    fun format(input: String): List<Instruction>
+    override fun format(input: String): List<Instruction>
         = input.trim().lines().map { it.first() to it.substring(1).toInt() }
 
     override fun part1()

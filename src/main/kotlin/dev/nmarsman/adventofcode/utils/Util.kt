@@ -3,6 +3,13 @@ package dev.nmarsman.adventofcode.utils
 import kotlin.math.absoluteValue
 
 /**
+ * String
+ */
+
+fun String.toBinary(length: Int = 8): String
+    = toLong().toString(2).padStart(length, '0')
+
+/**
  * List
  */
 

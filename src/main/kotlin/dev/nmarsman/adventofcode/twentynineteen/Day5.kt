@@ -3,10 +3,10 @@ package dev.nmarsman.adventofcode.twentynineteen
 import dev.nmarsman.adventofcode.Puzzle
 import dev.nmarsman.adventofcode.twentynineteen.IntCode.Program
 
-class Day5: Puzzle(2019, 5)
+class Day5: Puzzle<IntArray>(2019, 5)
 {
-    override val input: IntArray
-        = data.trim().split(',').map { it.toInt() }.toIntArray()
+    override fun format(input: String)
+        = input.trim().split(',').map { it.toInt() }.toIntArray()
 
     override fun part1()
         = Program(input.copyOf(), 1).run().output.last()

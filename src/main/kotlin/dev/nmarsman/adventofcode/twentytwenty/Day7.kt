@@ -2,12 +2,9 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day7: Puzzle(2020, 7)
+class Day7: Puzzle<Map<String, List<List<String>>>>(2020, 7)
 {
-    override val input
-        = format(data.trim())
-
-    fun format(input: String) = input.trim().lines().map { line ->
+    override fun format(input: String) = input.trim().lines().map { line ->
         val (key, value) = line.split(" bags contain ")
 
         key to value.replace(".", "").split(",")

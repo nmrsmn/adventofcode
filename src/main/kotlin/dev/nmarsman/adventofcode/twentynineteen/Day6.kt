@@ -2,10 +2,10 @@ package dev.nmarsman.adventofcode.twentynineteen
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day6: Puzzle(2019, 6)
+class Day6: Puzzle<Map<String, String>>(2019, 6)
 {
-    override val input: Map<String, String>
-        = data.trim().lines()
+    override fun format(input: String): Map<String, String>
+        = input.trim().lines()
             .map { it.split(")") }
             .map { it.last() to it.first() }
             .toMap()

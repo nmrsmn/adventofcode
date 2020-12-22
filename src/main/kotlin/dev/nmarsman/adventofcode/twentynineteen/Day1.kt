@@ -9,10 +9,10 @@ import kotlin.math.max
  *
  * See [Year 2019, Day 1](https://adventofcode.com/2019/day/1)
  */
-class Day1: Puzzle(2019, 1)
+class Day1: Puzzle<List<Double>>(2019, 1)
 {
-    override val input: List<Double>
-        = data.trim().lines().map { it.toDouble() }
+    override fun format(input: String)
+        = input.trim().lines().map { it.toDouble() }
 
     override fun part1()
         = input

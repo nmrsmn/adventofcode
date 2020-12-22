@@ -70,9 +70,5 @@ class Day10Tests: PuzzleTest
 
     */
     @Test
-    override fun `part two examples`()
-    {
-        Assertions.assertEquals(62, input)
-        Assertions.assertEquals(62, largeInput)
-    }
+    override fun `part two examples`() = Unit
 }

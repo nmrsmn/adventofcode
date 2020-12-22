@@ -3,10 +3,10 @@ package dev.nmarsman.adventofcode.twentytwenty
 import dev.nmarsman.adventofcode.Puzzle
 import kotlin.math.pow
 
-class Day5: Puzzle(2020, 5)
+class Day5: Puzzle<List<Int>>(2020, 5)
 {
-    override val input: List<Int>
-        = data.trim().lines().map(::findSeatId)
+    override fun format(input: String): List<Int>
+        = input.trim().lines().map(::findSeatId)
 
     override fun part1()
         = input.maxOrNull()

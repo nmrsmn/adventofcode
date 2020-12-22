@@ -17,14 +17,14 @@ class Day2Tests: PuzzleTest
     @Test
     override fun `part one examples`()
     {
-        Assertions.assertEquals(intArrayOf(2, 0, 0, 0, 99),
-            puzzle.process(intArrayOf(1, 0, 0, 0, 99)))
-        Assertions.assertEquals(intArrayOf(2, 3, 0, 6, 99),
-            puzzle.process(intArrayOf(2, 3, 0, 3, 99)))
-        Assertions.assertEquals(intArrayOf(2, 4, 4, 5, 99, 9801),
-            puzzle.process(intArrayOf(2, 4, 4, 5, 99, 0)))
-        Assertions.assertEquals(intArrayOf(30, 1, 1, 4, 2, 5, 6, 0, 99),
-            puzzle.process(intArrayOf(1, 1, 1, 4, 99, 5, 6, 0, 99)))
+        Assertions.assertTrue(intArrayOf(2, 0, 0, 0, 99)
+            .contentEquals(puzzle.process(intArrayOf(1, 0, 0, 0, 99))))
+        Assertions.assertTrue(intArrayOf(2, 3, 0, 6, 99)
+            .contentEquals(puzzle.process(intArrayOf(2, 3, 0, 3, 99))))
+        Assertions.assertTrue(intArrayOf(2, 4, 4, 5, 99, 9801)
+            .contentEquals(puzzle.process(intArrayOf(2, 4, 4, 5, 99, 0))))
+        Assertions.assertTrue(intArrayOf(30, 1, 1, 4, 2, 5, 6, 0, 99)
+            .contentEquals(puzzle.process(intArrayOf(1, 1, 1, 4, 99, 5, 6, 0, 99))))
     }
 
     /*

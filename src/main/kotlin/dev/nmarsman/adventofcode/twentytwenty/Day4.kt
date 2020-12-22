@@ -2,11 +2,9 @@ package dev.nmarsman.adventofcode.twentytwenty
 
 import dev.nmarsman.adventofcode.Puzzle
 
-class Day4: Puzzle(2020, 4)
+class Day4: Puzzle<List<String>>(2020, 4)
 {
-    override val input: List<String> = format(data)
-
-    fun format(input: String) = input.trim()
+    override fun format(input: String) = input.trim()
         .split("\n\n")
         .map { it.replace("\n", " ") }
         .filter { it.isNotBlank() }

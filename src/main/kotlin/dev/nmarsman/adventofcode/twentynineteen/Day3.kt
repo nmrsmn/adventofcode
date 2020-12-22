@@ -4,16 +4,10 @@ import dev.nmarsman.adventofcode.Puzzle
 import java.lang.IllegalStateException
 import kotlin.math.abs
 
-class Day3: Puzzle(2019, 3)
+class Day3: Puzzle<List<String>>(2019, 3)
 {
-    override val input: List<String>
-        = data.trim().lines()
-
-    private val intersections: Set<Point>
-        = input
-            .map(::convert)
-            .map(::convertToPoint)
-            .let { (first, second) -> first.intersect(second) }
+    override fun format(input: String)
+        = input.trim().lines()
 
     override fun part1()
         = part1(input)
@@ -33,7 +27,7 @@ class Day3: Puzzle(2019, 3)
         = input
             .map(::convert)
             .map(::convertToPoint)
-            .map(::intersectWithSteps)
+            .map { intersectWithSteps(it, input) }
             .let { (first, second) -> first.map { it.value + second.getValue(it.key) }.min() }
 
     fun convert(directions: String): List<Pair<Char, Int>>
@@ -59,10 +53,19 @@ class Day3: Puzzle(2019, 3)
         return points
     }
 
-    fun intersectWithSteps(points: List<Point>): Map<Point, Int>
-        = points
-            .mapIndexed { index, point -> point to index + 1 }
-            .filter { intersections.contains(it.first) }.toMap()
+    private fun intersections(input: List<String>): Set<Point>
+        = input
+            .map(::convert)
+            .map(::convertToPoint)
+            .let { (first, second) -> first.intersect(second) }
+
+    fun intersectWithSteps(points: List<Point>, input: List<String>): Map<Point, Int>
+        = with(intersections(input)) {
+            points
+                .mapIndexed { index, point -> point to index + 1 }
+                .filter { this.contains(it.first) }.toMap()
+        }
+
 }
 
 fun main() = Puzzle.mainify(Day3::class)

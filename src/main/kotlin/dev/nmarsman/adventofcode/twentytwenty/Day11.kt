@@ -5,11 +5,9 @@ import dev.nmarsman.adventofcode.Puzzle
 typealias Seats = Array<CharArray>
 typealias Seat = Pair<Int, Int>
 
-class Day11: Puzzle(2020, 11)
+class Day11: Puzzle<Seats>(2020, 11)
 {
-    override val input = data.let(::format)
-
-    fun format(input: String): Seats
+    override fun format(input: String): Seats
         = input.trim().lines().map(String::toCharArray).toTypedArray()
 
     override fun part1()
